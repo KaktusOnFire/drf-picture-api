@@ -1,0 +1,47 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:14.1-alpine
+    container_name: db
+    env_file:
+      - docker/.env
+    volumes:
+      - ./data/postgres-data:/var/lib/postgresql/data
+    restart: on-failure:5
+    ports:
+      - 127.0.0.1:5432:5432 
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+    ulimits:
+      nofile:
+        soft: 128000
+        hard: 128000
+
+  web:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: api
+    command: sh -c "python manage.py collectstatic --noinput && uvicorn picture_api.asgi:application --host 0.0.0.0 --port 8000 --log-level=info --no-access-log"
+    env_file:
+      - docker/.env
+    volumes:
+      - ./data/media:/static_cdn/media_root
+    restart: on-failure:5
+    ports:
+      - 127.0.0.1:8000:8000
+    links:
+      - db
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+    ulimits:
+      nofile:
+        soft: 128000
+        hard: 128000
