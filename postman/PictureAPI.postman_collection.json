@@ -75,7 +75,7 @@
 							"variable": [
 								{
 									"key": "picture_id",
-									"value": null,
+									"value": "",
 									"description": "Target picture ID"
 								}
 							]
@@ -155,7 +155,7 @@
 							"variable": [
 								{
 									"key": "picture_id",
-									"value": null,
+									"value": "2",
 									"description": "Target picture ID"
 								}
 							]
@@ -193,7 +193,7 @@
 							"variable": [
 								{
 									"key": "picture_id",
-									"value": null,
+									"value": "",
 									"description": "Target picture ID"
 								}
 							]
@@ -260,18 +260,6 @@
 							"path": [
 								"account",
 								"register"
-							],
-							"query": [
-								{
-									"key": "username",
-									"value": "test",
-									"disabled": true
-								},
-								{
-									"key": "password",
-									"value": "test",
-									"disabled": true
-								}
 							]
 						}
 					},
@@ -288,13 +276,13 @@
 								{
 									"key": "username",
 									"value": "",
-									"description": "Login",
+									"description": "username",
 									"type": "text"
 								},
 								{
 									"key": "password",
 									"value": "",
-									"description": "Password",
+									"description": "password",
 									"type": "text"
 								}
 							]
@@ -356,7 +344,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "TOKEN 6fba8c123a809777f5698bda3e03e62303d36240",
+						"value": "TOKEN {{api_key}}",
 						"type": "text"
 					}
 				],
@@ -412,7 +400,7 @@
 	"variable": [
 		{
 			"key": "api_key",
-			"value": "YOUR_KEY",
+			"value": "API_KEY",
 			"type": "string"
 		}
 	]
