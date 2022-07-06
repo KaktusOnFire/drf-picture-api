@@ -1,0 +1,419 @@
+{
+	"info": {
+		"_postman_id": "3b7471e5-b03d-4408-9fca-b753fae1bbe7",
+		"name": "PictureAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17371065"
+	},
+	"item": [
+		{
+			"name": "CRUD Picture",
+			"item": [
+				{
+					"name": "Get All Pictures",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "TOKEN {{api_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/picture",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"picture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Picture by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "TOKEN {{api_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/picture/:picture_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"picture",
+								":picture_id"
+							],
+							"variable": [
+								{
+									"key": "picture_id",
+									"value": null,
+									"description": "Target picture ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New picture",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "TOKEN {{api_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/picture",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"picture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update existing picture",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "TOKEN {{api_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/picture/:picture_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"picture",
+								":picture_id"
+							],
+							"variable": [
+								{
+									"key": "picture_id",
+									"value": null,
+									"description": "Target picture ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete existing picture",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "TOKEN {{api_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/picture/:picture_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"picture",
+								":picture_id"
+							],
+							"variable": [
+								{
+									"key": "picture_id",
+									"value": null,
+									"description": "Target picture ID"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "",
+									"description": "Login",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"description": "Password",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "",
+									"description": "Confirm password",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"description": "Email",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/account/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								"register"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "test",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get API Key",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "",
+									"description": "Login",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"description": "Password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/account/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get account info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "TOKEN {{api_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/account/whoami",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								"whoami"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "[ADMIN] Delete all pictures",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "TOKEN 6fba8c123a809777f5698bda3e03e62303d36240",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/picture/purge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"picture",
+						"purge"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_key",
+			"value": "YOUR_KEY",
+			"type": "string"
+		}
+	]
+}

@@ -91,7 +91,7 @@ class WhoamiTests(APITestCase):
         """
         Try to get user info with wrong token
         """
-        self.client.credentials(HTTP_AUTHORIZATION=f'TOKEN SUPER_TOKEN')
+        self.client.credentials(HTTP_AUTHORIZATION='TOKEN SUPER_TOKEN')
         url = reverse('whoami')
         response = self.client.get(url, None)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
