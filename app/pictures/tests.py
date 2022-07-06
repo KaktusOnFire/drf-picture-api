@@ -41,19 +41,16 @@ class PermissionTests(APITestCase):
         """
         Try to use CRUD with auth token
         """
-        url = reverse('register')
-        data = {
-            'username': self.user,
-            'password': self.password,
-            'password2': self.password,
-            'email': 'iamcool@gmail.ya',
-            'first_name': 'Super',
-            'last_name': 'User',
-        }
-        self.client.post(url, data, format='json')
-        login_response = self.client.post(reverse('login'), data, format='json')
-        token = login_response.json()["token"]
-        self.client.credentials(HTTP_AUTHORIZATION=f'TOKEN {token}')
+        self.user_object = User.objects.create(
+            username=self.user,
+            email='iamcool@gmail.ya',
+            first_name='Super',
+            last_name='User',
+        )
+        self.user_object.set_password(self.password)
+        self.user_object.save()
+        self.token, created = Token.objects.get_or_create(user=self.user_object)
+        self.client.credentials(HTTP_AUTHORIZATION=f'TOKEN {self.token.key}')
         url = reverse('picture-list')
         response = self.client.get(url, None)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
